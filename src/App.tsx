@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Expenses from "./components/Expenses";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: React.FC = () => {
+	const items = [
+		{
+			id: Math.random(),
+			name: "Car Insurance",
+			price: "298$",
+			date: new Date(2021, 12, 1),
+		},
+		{
+			id: Math.random(),
+			name: "Food",
+			price: "150$",
+			date: new Date(2021, 8, 5),
+		},
+		{
+			id: Math.random(),
+			name: "Games",
+			price: "399$",
+			date: new Date(2021, 6, 20),
+		},
+		{
+			id: Math.random(),
+			name: "Toys",
+			price: "999$",
+			date: new Date(2021, 4, 5),
+		},
+	];
+
+	return (
+		<div className='App'>
+			{/*ExpenseInputForm*/}
+			{/*ExpenseOverview*/}
+			<Expenses items={items} />
+		</div>
+	);
+};
 
 export default App;
