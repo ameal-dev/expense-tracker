@@ -31,8 +31,8 @@ const App: React.FC = () => {
 
 	return (
 		<div className='App'>
-			{/*ExpenseInputForm*/}
-			{/*ExpenseOverview*/}
+			{/*ExpenseInputForm - should include name, price & date*/}
+			{/*ExpenseOverview - should include filterByYear, ExpenseAsRatioPerMonth*/}
 			<Expenses items={items} />
 		</div>
 	);
