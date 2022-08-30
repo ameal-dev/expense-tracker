@@ -1,4 +1,26 @@
 .date-container {
 	margin-left: 1rem;
-	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 5.5rem;
+	color: black;
+	border: 1px solid white;
+	border-radius: 0.5rem;
+	padding: 0.4rem 0;
+	background-color: darkorange;
+}
+
+.year {
+	font-size: 0.8rem;
+}
+
+.month {
+	font-weight: bold;
+	font-size: 0.8rem;
+}
+
+.day {
+	font-size: 1.5rem;
+	font-weight: bold;
 }

@@ -11,4 +11,12 @@ html {
 body {
 	margin: 0;
 	background-color: #7dbbc3;
+	display: flex;
+	justify-content: center;
+}
+
+.App {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 }

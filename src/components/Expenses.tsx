@@ -3,8 +3,8 @@ import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
 
 interface Item {
-	id: number;
-	name: string;
+	id?: number;
+	description: string;
 	price: string;
 	date: Date;
 }
@@ -13,13 +13,13 @@ interface ExpensesProps {
 	items: Item[];
 }
 
-const Expenses: React.FC<ExpensesProps> = (props) => {
+const Expenses: React.FC<ExpensesProps> = ({ items }) => {
 	//map all of the expenseItem
 	return (
 		<ul>
-			{props.items.map((item) => {
+			{items.map((item) => {
 				return (
-					<li>
+					<li key={item.id}>
 						<ExpenseItem item={item} />
 					</li>
 				);

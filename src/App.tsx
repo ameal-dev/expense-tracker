@@ -1,37 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import Expenses from "./components/Expenses";
+import ExpenseInputForm from "./components/ExpenseInputForm";
+import { Item } from "./types/Item.model";
 
 const App: React.FC = () => {
-	const items = [
+	const [items, setItems] = useState<Item[]>([
 		{
 			id: Math.random(),
-			name: "Car Insurance",
+			description: "Car Insurance",
 			price: "298$",
 			date: new Date(2021, 12, 1),
 		},
 		{
 			id: Math.random(),
-			name: "Food",
+			description: "Food",
 			price: "150$",
 			date: new Date(2021, 8, 5),
 		},
 		{
 			id: Math.random(),
-			name: "Games",
+			description: "Games",
 			price: "399$",
 			date: new Date(2021, 6, 20),
 		},
 		{
 			id: Math.random(),
-			name: "Toys",
+			description: "Toys",
 			price: "999$",
 			date: new Date(2021, 4, 5),
 		},
-	];
+	]);
 
 	return (
 		<div className='App'>
-			{/*ExpenseInputForm - should include name, price & date*/}
+			<ExpenseInputForm setItems={setItems} />
 			{/*ExpenseOverview - should include filterByYear, ExpenseAsRatioPerMonth*/}
 			<Expenses items={items} />
 		</div>
