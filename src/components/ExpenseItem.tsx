@@ -1,13 +1,7 @@
 import React from "react";
 import ExpenseItemDate from "./ExpenseItemDate";
 import "./ExpenseItem.css";
-
-interface Item {
-	id?: number;
-	description: string;
-	price: string;
-	date: Date;
-}
+import { Item } from "../types/Item.model";
 
 interface ExpenseItemProps {
 	item: Item;

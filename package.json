@@ -1,6 +1,8 @@
 {
   "name": "expense-tracker",
   "version": "0.1.0",
+  "author": "BGW8",
+  "description": "A simple expense tracker built in TypeScript + React.js",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

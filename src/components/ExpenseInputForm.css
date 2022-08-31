@@ -5,6 +5,31 @@
 	flex-direction: column;
 }
 
+form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
 input {
 	display: block;
+	margin: 0 0 10px 0;
+}
+
+button {
+	height: 2.5rem;
+	width: 7rem;
+	letter-spacing: 1px;
+	border-radius: 0.5rem;
+	border: none;
+	margin-top: 0.5rem;
+	font-size: 1rem;
+	font-weight: bold;
+	cursor: pointer;
+	background-color: #fff;
+}
+
+button:hover {
+	background-color: #d1d1d1;
 }

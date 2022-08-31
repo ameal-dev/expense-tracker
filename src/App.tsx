@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import Expenses from "./components/Expenses";
+import ExpensesList from "./components/ExpensesList";
 import ExpenseInputForm from "./components/ExpenseInputForm";
+import ExpensesOverview from "./components/ExpensesOverview";
 import { Item } from "./types/Item.model";
 
 const App: React.FC = () => {
+	//TODO: implement single-source-of-truth for state management
 	const [items, setItems] = useState<Item[]>([
 		{
 			id: Math.random(),
@@ -34,8 +36,8 @@ const App: React.FC = () => {
 	return (
 		<div className='App'>
 			<ExpenseInputForm setItems={setItems} />
-			{/*ExpenseOverview - should include filterByYear, ExpenseAsRatioPerMonth*/}
-			<Expenses items={items} />
+			<ExpensesOverview items={items} />
+			<ExpensesList items={items} />
 		</div>
 	);
 };

@@ -7,10 +7,10 @@ interface ExpenseInputFormProps {
 }
 
 const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({ setItems }) => {
-	const initalState = {
+	const initalState: Item = {
 		description: "",
 		price: "",
-		date: new Date().toISOString().split("T")[0],
+		date: new Date(),
 	};
 
 	const [input, setInput] = useState(initalState);
@@ -46,7 +46,7 @@ const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({ setItems }) => {
 					type='date'
 					id='date'
 					onChange={handleChange}
-					value={input.date}
+					value={input.date.toString()}
 					required
 				/>
 				<label htmlFor='description'>DESCRIPTION</label>
