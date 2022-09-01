@@ -12,7 +12,7 @@ const ExpenseItem: React.FC<ExpenseItemProps> = ({ item }) => {
 		<div className='expense-item'>
 			<ExpenseItemDate date={item.date} />
 			<h2>{item.description}</h2>
-			<div className='expense-item__price'>{item.price}</div>
+			<div className='expense-item__price'>{item.price}$</div>
 		</div>
 	);
 };

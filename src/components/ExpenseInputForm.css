@@ -3,6 +3,7 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	margin: 1rem;
 }
 
 form {
@@ -10,20 +11,37 @@ form {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	flex: 1 0 auto;
+	width: 100%;
 }
 
 input {
 	display: block;
-	margin: 0 0 10px 0;
+	height: 2rem;
+	width: 10rem;
+	text-align: center;
+	border: none;
+	border-radius: 0.5rem;
+}
+
+.input-label {
+	text-align: center;
+}
+
+.input-container {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
 
 button {
+	display: block;
 	height: 2.5rem;
 	width: 7rem;
 	letter-spacing: 1px;
 	border-radius: 0.5rem;
 	border: none;
-	margin-top: 0.5rem;
+	margin-top: 1rem;
 	font-size: 1rem;
 	font-weight: bold;
 	cursor: pointer;

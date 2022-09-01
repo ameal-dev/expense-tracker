@@ -34,39 +34,49 @@ const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({ setItems }) => {
 	};
 
 	const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-		console.log(event.target);
 		setInput({ ...input, [event.target.id]: event.target.value });
 	};
 
 	return (
 		<div className='form-container'>
 			<form onSubmit={submitHandler}>
-				<label htmlFor='date'>DATE</label>
-				<input
-					type='date'
-					id='date'
-					onChange={handleChange}
-					value={input.date.toString()}
-					required
-				/>
-				<label htmlFor='description'>DESCRIPTION</label>
-				<input
-					type='text'
-					id='description'
-					onChange={handleChange}
-					value={input.description}
-					required
-				/>
-				{/*//TODO: Add validation*/}
-				<label htmlFor='price'>PRICE [$]</label>
-				<input
-					type='text'
-					id='price'
-					value={input.price}
-					onChange={handleChange}
-					required
-				/>
-				<button type='submit'>SUBMIT</button>
+				<div className='input-container'>
+					<div className='input-label'>
+						<label htmlFor='date'>DATE</label>
+						<input
+							type='date'
+							id='date'
+							onChange={handleChange}
+							value={input.date.toString()}
+							required
+						/>
+					</div>
+					<div className='input-label'>
+						<label htmlFor='description'>DESCRIPTION</label>
+						<input
+							type='text'
+							id='description'
+							placeholder='description'
+							onChange={handleChange}
+							value={input.description}
+							required
+						/>
+					</div>
+					<div className='input-label'>
+						<label htmlFor='price'>PRICE [$]</label>
+						<input
+							type='number'
+							id='price'
+							value={input.price}
+							placeholder='Price'
+							onChange={handleChange}
+							required
+						/>
+					</div>
+				</div>
+				<div className='button-container'>
+					<button type='submit'>SUBMIT</button>
+				</div>
 			</form>
 		</div>
 	);
