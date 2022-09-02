@@ -6,6 +6,7 @@ import { sortYears } from "../utils/sortYears";
 interface ExpensesOverviewProps {
 	items: Item[];
 	handleSelect: React.ChangeEventHandler<HTMLSelectElement>;
+	monthlyExpenses: number[];
 }
 
 const months = [
@@ -26,6 +27,7 @@ const months = [
 const ExpensesOverview: React.FC<ExpensesOverviewProps> = ({
 	items,
 	handleSelect,
+	monthlyExpenses,
 }) => {
 	const yearsWithExpenses = (itemsArray: Item[]) => {
 		const uniqueYearsArray = sortYears(itemsArray);
@@ -42,7 +44,11 @@ const ExpensesOverview: React.FC<ExpensesOverviewProps> = ({
 			{months.map((month, idx) => {
 				return (
 					<div className='progress-container' key={idx}>
-						<progress max='100' value='50' className='progress-bar'></progress>
+						<progress
+							max={monthlyExpenses.reduce((cur, acc) => cur + acc, 0) / 2}
+							value={monthlyExpenses[idx]}
+							className='progress-bar'
+						></progress>
 						<div className='overview__month'>{month}</div>
 					</div>
 				);

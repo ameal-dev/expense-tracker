@@ -28,7 +28,7 @@
 	font-size: 0.8rem;
 }
 
-.progress-bar {
+progress {
 	transform: rotate(270deg);
 	width: 10rem;
 	height: 1rem;

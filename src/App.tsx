@@ -12,6 +12,7 @@ function latestYear(items: Item[]) {
 
 const App: React.FC = () => {
 	const [items, setItems] = useState<Item[]>(randomizeExpenseItems(500));
+	const [monthlyExpenses, setMonthlyExpenses] = useState<number[]>();
 	const [filteredItems, setFilteredItems] = useState<Item[]>();
 	const [activeYear, setActiveYear] = useState(latestYear(items));
 
@@ -30,6 +31,8 @@ const App: React.FC = () => {
 				monthArray[item.date.getMonth()] =
 					monthArray[item.date.getMonth()] + +item.price;
 			});
+			setMonthlyExpenses(monthArray);
+			console.log(monthArray);
 		}
 	}, [filteredItems]);
 
@@ -37,10 +40,15 @@ const App: React.FC = () => {
 		setActiveYear(event.target.value);
 	};
 
+	//? Is there a better way than to do "x ? x : []"
 	return (
 		<div className='App'>
 			<ExpenseInputForm setItems={setItems} />
-			<ExpensesOverview items={items} handleSelect={handleSelect} />
+			<ExpensesOverview
+				items={items}
+				handleSelect={handleSelect}
+				monthlyExpenses={monthlyExpenses ? monthlyExpenses : []}
+			/>
 			<ExpensesList filteredItems={filteredItems ? filteredItems : []} />
 		</div>
 	);
