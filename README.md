@@ -6,6 +6,13 @@ Expense tracker built with TypeScript and React for practice.
 
 ---
 
+## Installation & Execution
+
+1. npm install
+2. npm run start
+
+---
+
 ## future features / TODOs
 
 ### State Management

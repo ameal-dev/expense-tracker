@@ -5,11 +5,17 @@ import { Item } from "../types/Item.model";
 
 interface ExpenseItemProps {
 	item: Item;
+	removeItem: (itemId: number) => void;
 }
 
-const ExpenseItem: React.FC<ExpenseItemProps> = ({ item }) => {
+const ExpenseItem: React.FC<ExpenseItemProps> = ({ item, removeItem }) => {
 	return (
 		<div className='expense-item'>
+			<img
+				src='/images/icon_remove.svg'
+				alt='remove expense'
+				onClick={() => removeItem(item.id!)}
+			></img>
 			<ExpenseItemDate date={item.date} />
 			<h2>{item.description}</h2>
 			<div className='expense-item__price'>{item.price}$</div>

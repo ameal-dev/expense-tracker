@@ -36,6 +36,11 @@ const App: React.FC = () => {
 		}
 	}, [filteredItems]);
 
+	const removeItem = (itemId: number) => {
+		const newArr = items.filter((item) => item.id !== itemId);
+		setItems(newArr);
+	};
+
 	const handleSelect: React.ChangeEventHandler<HTMLSelectElement> = (event) => {
 		setActiveYear(event.target.value);
 	};
@@ -49,7 +54,10 @@ const App: React.FC = () => {
 				handleSelect={handleSelect}
 				monthlyExpenses={monthlyExpenses ? monthlyExpenses : []}
 			/>
-			<ExpensesList filteredItems={filteredItems ? filteredItems : []} />
+			<ExpensesList
+				filteredItems={filteredItems ? filteredItems : []}
+				removeItem={removeItem}
+			/>
 		</div>
 	);
 };
