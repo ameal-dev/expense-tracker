@@ -4,6 +4,10 @@
 	align-items: center;
 	flex-direction: column;
 	margin: 1rem;
+	position: sticky;
+	top: 0;
+	padding-top: 2rem;
+	z-index: 10;
 }
 
 form {
@@ -15,15 +19,31 @@ form {
 	width: 100%;
 }
 
+.input-shadow {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
 input {
-	display: block;
+	display: flex;
+	max-width: 100%;
 	height: 2.5rem;
 	width: 10rem;
 	font-family: Inter, sans-serif;
 	font-size: 1.2rem;
+	position: relative;
 	text-align: center;
 	border: 2px solid #111;
 	border-radius: 0.5rem;
+	touch-action: manipulation;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+input:focus {
+	outline: none;
+	border: 3px solid black;
 }
 
 .input-label {

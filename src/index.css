@@ -13,6 +13,7 @@ body {
 	background-color: #7dbbc3;
 	display: flex;
 	justify-content: center;
+	z-index: -2;
 }
 
 .App {

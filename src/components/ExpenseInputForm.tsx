@@ -55,6 +55,7 @@ const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({
 							value={input.date.toString()}
 							required
 						/>
+						<div className='input-shadow'></div>
 					</div>
 					<div className='input-label'>
 						<label htmlFor='description'></label>
@@ -66,6 +67,7 @@ const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({
 							value={input.description}
 							required
 						/>
+						<div className='input-shadow'></div>
 					</div>
 					<div className='input-label'>
 						<label htmlFor='price'></label>
@@ -77,6 +79,7 @@ const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({
 							onChange={handleChange}
 							required
 						/>
+						<div className='input-shadow'></div>
 					</div>
 				</div>
 				<div className='button-container'>
