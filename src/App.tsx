@@ -3,60 +3,45 @@ import ExpensesList from "./components/ExpensesList";
 import ExpenseInputForm from "./components/ExpenseInputForm";
 import ExpensesOverview from "./components/ExpensesOverview";
 import { Item } from "./types/Item.model";
+import { randomizeExpenseItems } from "./utils/randomizeExpenseItems";
+import { sortYears } from "./utils/sortYears";
+
+function latestYear(items: Item[]) {
+	return sortYears(items)[0].toString();
+}
 
 const App: React.FC = () => {
-	//TODO: implement single-source-of-truth for state management
-
-	//simulate a Fetch-operation of data
-	const [items, setItems] = useState<Item[]>([
-		{
-			id: Math.random(),
-			description: "Car Insurance",
-			price: "298",
-			date: new Date(2022, 11, 1),
-		},
-		{
-			id: Math.random(),
-			description: "Food",
-			price: "150",
-			date: new Date(2021, 8, 5),
-		},
-		{
-			id: Math.random(),
-			description: "Games",
-			price: "399",
-			date: new Date(2021, 6, 20),
-		},
-		{
-			id: Math.random(),
-			description: "Toys",
-			price: "999",
-			date: new Date(2021, 4, 5),
-		},
-	]);
-	const initalFilteredItems = [...items];
-	const [filteredItems, setFilteredItems] =
-		useState<Item[]>(initalFilteredItems);
-	const [activeYear, setActiveYear] = useState("2022");
+	const [items, setItems] = useState<Item[]>(randomizeExpenseItems(500));
+	const [filteredItems, setFilteredItems] = useState<Item[]>();
+	const [activeYear, setActiveYear] = useState(latestYear(items));
 
 	useEffect(() => {
 		setFilteredItems(
-			items.filter((item) => item.date.getFullYear().toString() === activeYear)
+			items
+				.filter((item) => item.date.getFullYear().toString() === activeYear)
+				.sort((a, b) => b.date.getTime() - a.date.getTime())
 		);
 	}, [activeYear, items]);
 
+	useEffect(() => {
+		const monthArray = new Array(12).fill(0);
+		if (filteredItems) {
+			filteredItems.forEach((item) => {
+				monthArray[item.date.getMonth()] =
+					monthArray[item.date.getMonth()] + +item.price;
+			});
+		}
+	}, [filteredItems]);
+
 	const handleSelect: React.ChangeEventHandler<HTMLSelectElement> = (event) => {
 		setActiveYear(event.target.value);
-		setFilteredItems(
-			items.filter((item) => item.date.getFullYear().toString() === activeYear)
-		);
 	};
 
 	return (
 		<div className='App'>
 			<ExpenseInputForm setItems={setItems} />
 			<ExpensesOverview items={items} handleSelect={handleSelect} />
-			<ExpensesList items={filteredItems} />
+			<ExpensesList filteredItems={filteredItems ? filteredItems : []} />
 		</div>
 	);
 };

@@ -4,22 +4,24 @@ import "./ExpensesList.css";
 import { Item } from "../types/Item.model";
 
 interface ExpensesProps {
-	items: Item[];
+	filteredItems: Item[];
 }
 
-const Expenses: React.FC<ExpensesProps> = ({ items }) => {
+const ExpensesList: React.FC<ExpensesProps> = ({ filteredItems }) => {
 	//map all of the expenseItem
 	return (
 		<ul>
-			{items.map((item) => {
-				return (
-					<li key={item.id}>
-						<ExpenseItem item={item} />
-					</li>
-				);
-			})}
+			{filteredItems
+				? filteredItems.map((item) => {
+						return (
+							<li key={item.id}>
+								<ExpenseItem item={item} />
+							</li>
+						);
+				  })
+				: "Loading..."}
 		</ul>
 	);
 };
 
-export default Expenses;
+export default ExpensesList;
