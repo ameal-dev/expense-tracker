@@ -12,8 +12,9 @@ const ExpenseItem: React.FC<ExpenseItemProps> = ({ item, removeItem }) => {
 	return (
 		<div className='expense-item'>
 			<img
-				src='/images/icon_remove.svg'
+				src='/images/icon_remove2.svg'
 				alt='remove expense'
+				//? Is there a better way to ensure that function is not declared for every item?
 				onClick={() => removeItem(item.id!)}
 			></img>
 			<ExpenseItemDate date={item.date} />

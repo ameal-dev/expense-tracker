@@ -47,7 +47,7 @@ const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({
 			<form onSubmit={handleSubmit}>
 				<div className='input-container'>
 					<div className='input-label'>
-						<label htmlFor='date'>DATE</label>
+						<label htmlFor='date'></label>
 						<input
 							type='date'
 							id='date'
@@ -57,7 +57,7 @@ const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({
 						/>
 					</div>
 					<div className='input-label'>
-						<label htmlFor='description'>DESCRIPTION</label>
+						<label htmlFor='description'></label>
 						<input
 							type='text'
 							id='description'
@@ -68,7 +68,7 @@ const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({
 						/>
 					</div>
 					<div className='input-label'>
-						<label htmlFor='price'>PRICE [$]</label>
+						<label htmlFor='price'></label>
 						<input
 							type='number'
 							id='price'
@@ -80,7 +80,9 @@ const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({
 					</div>
 				</div>
 				<div className='button-container'>
-					<button type='submit'>SUBMIT</button>
+					<button type='submit' className='button-56'>
+						SUBMIT
+					</button>
 				</div>
 			</form>
 		</div>
