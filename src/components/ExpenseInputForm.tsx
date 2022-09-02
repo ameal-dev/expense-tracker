@@ -4,9 +4,13 @@ import "./ExpenseInputForm.css";
 
 interface ExpenseInputFormProps {
 	setItems: Dispatch<SetStateAction<Item[]>>;
+	setActiveYear: Dispatch<SetStateAction<string>>;
 }
 
-const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({ setItems }) => {
+const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({
+	setItems,
+	setActiveYear,
+}) => {
 	const initalState: Item = {
 		description: "",
 		price: "",
@@ -19,7 +23,7 @@ const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({ setItems }) => {
 		setInput({ ...initalState });
 	};
 
-	const submitHandler: React.ChangeEventHandler<HTMLFormElement> = (event) => {
+	const handleSubmit: React.ChangeEventHandler<HTMLFormElement> = (event) => {
 		event.preventDefault();
 		const newItem: Item = {
 			id: Math.random(),
@@ -30,6 +34,7 @@ const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({ setItems }) => {
 		setItems((prevState) =>
 			[...prevState, newItem].sort((a, b) => Number(b.date) - Number(a.date))
 		);
+		setActiveYear(newItem.date.getFullYear().toString());
 		clearInput();
 	};
 
@@ -39,7 +44,7 @@ const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({ setItems }) => {
 
 	return (
 		<div className='form-container'>
-			<form onSubmit={submitHandler}>
+			<form onSubmit={handleSubmit}>
 				<div className='input-container'>
 					<div className='input-label'>
 						<label htmlFor='date'>DATE</label>

@@ -43,7 +43,7 @@ const App: React.FC = () => {
 	//? Is there a better way than to do "x ? x : []"
 	return (
 		<div className='App'>
-			<ExpenseInputForm setItems={setItems} />
+			<ExpenseInputForm setItems={setItems} setActiveYear={setActiveYear} />
 			<ExpensesOverview
 				items={items}
 				handleSelect={handleSelect}

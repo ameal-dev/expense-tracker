@@ -45,7 +45,7 @@ const ExpensesOverview: React.FC<ExpensesOverviewProps> = ({
 				return (
 					<div className='progress-container' key={idx}>
 						<progress
-							max={monthlyExpenses.reduce((cur, acc) => cur + acc, 0) / 2}
+							max={monthlyExpenses.reduce((cur, acc) => cur + acc, 0) / 5}
 							value={monthlyExpenses[idx]}
 							className='progress-bar'
 						></progress>
