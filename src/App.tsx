@@ -42,6 +42,7 @@ const App: React.FC = () => {
 	};
 
 	const handleSelect: React.ChangeEventHandler<HTMLSelectElement> = (event) => {
+		console.log();
 		setActiveYear(event.target.value);
 	};
 

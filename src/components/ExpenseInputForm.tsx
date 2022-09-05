@@ -11,16 +11,23 @@ const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({
 	setItems,
 	setActiveYear,
 }) => {
-	const initalState: Item = {
+	const initalInputState: Item = {
 		description: "",
 		price: "",
 		date: new Date(),
 	};
+	const [showForm, setShowForm] = useState(false);
+	const [input, setInput] = useState(initalInputState);
 
-	const [input, setInput] = useState(initalState);
+	// //TODO: Implement moemoization to reduce/remove unecessary renders.
+	// console.log("render inputform...");
 
 	const clearInput = () => {
-		setInput({ ...initalState });
+		setInput({ ...initalInputState });
+	};
+
+	const handleShowForm = () => {
+		setShowForm((formVisible) => !formVisible);
 	};
 
 	const handleSubmit: React.ChangeEventHandler<HTMLFormElement> = (event) => {
@@ -42,7 +49,7 @@ const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({
 		setInput({ ...input, [event.target.id]: event.target.value });
 	};
 
-	return (
+	return showForm ? (
 		<div className='form-container'>
 			<form onSubmit={handleSubmit}>
 				<div className='input-container'>
@@ -83,11 +90,20 @@ const ExpenseInputForm: React.FC<ExpenseInputFormProps> = ({
 					</div>
 				</div>
 				<div className='button-container'>
+					<button onClick={handleShowForm} className='button-56'>
+						CANCEL
+					</button>
 					<button type='submit' className='button-56'>
 						SUBMIT
 					</button>
 				</div>
 			</form>
+		</div>
+	) : (
+		<div className='form-container'>
+			<button className='button-56' onClick={handleShowForm}>
+				ADD EXPENSE
+			</button>
 		</div>
 	);
 };

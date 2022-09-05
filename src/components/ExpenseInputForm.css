@@ -50,6 +50,13 @@ input:focus {
 	text-align: center;
 }
 
+.button-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+}
+
 .input-container {
 	display: flex;
 	justify-content: space-between;
@@ -74,7 +81,7 @@ input:focus {
 	letter-spacing: 1px;
 	justify-content: center;
 	line-height: 24px;
-	max-width: 100%;
+	max-width: 14rem;
 	padding: 0 25px;
 	position: relative;
 	text-align: center;

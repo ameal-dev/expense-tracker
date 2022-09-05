@@ -12,7 +12,10 @@ const ExpensesList: React.FC<ExpensesProps> = ({
 	filteredItems,
 	removeItem,
 }) => {
-	//map all of the expenseItem
+	if (filteredItems.length === 0) {
+		return <h2>No expenses for selected year.</h2>;
+	}
+
 	return (
 		<ul>
 			{filteredItems
